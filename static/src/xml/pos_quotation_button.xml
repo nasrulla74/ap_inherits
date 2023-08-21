@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+<!--Remove Invoice Button from POS Payment screen-->
+  <t t-name="PaymentScreen_inherit" t-inherit="point_of_sale.PaymentScreen"
+        t-inherit-mode="extension" owl="1">
+        <xpath expr="//div[hasclass('payment-controls')]" position="attributes">
+            <attribute name="style">
+                display: none;
+            </attribute>
+        </xpath>
+    </t>
+
+
+     <t t-name="Chrome-Inherit" t-inherit="point_of_sale.Chrome"
+        t-inherit-mode="extension" owl="1">
+        <xpath expr="//img[hasclass('pos-logo')]" position="replace">
+           <img class="pos-logo" src="/web/binary/company_logo" />
+        </xpath>
+    </t>
+
+<!--    <t t-extend="Chrome" owl="1">-->
+<!--        <t t-jquery='.pos-logo' t-operation='replace'>-->
+<!--            <img class="pos-logo" src="" />-->
+<!--        </t>-->
+<!--    </t>-->
+
+</templates>

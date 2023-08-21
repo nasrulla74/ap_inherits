@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">ap.res.config.settings.view.form.ap.inherits</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="Appeul Setings" id="appeul_setting" string="Appeul Settins" data-key="ap_inherits">
+                        <h2>General Settings</h2>
+                        <div class="row mt16 o_settings_container" id="end_contract_setting">
+
+
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Custom USD Exchange Rate</span>
+                                    <div class="text-muted content-group mt16">
+                                        <span>Custom USD Exchange Rate </span>
+                                        <field name="custom_usd_rate" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span>Custom USD Exchange Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Green Tax</span>
+                                    <div class="text-muted content-group mt16">
+                                        <span>Green Tax </span>
+                                        <field name="green_tax_rate" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                        <span>Green Tax Amount for Hotel Module</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="ap_appeul_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Appeul Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'ap_inherits', 'bin_size': False}</field>
+        </record>
+
+<!--        <menuitem id="appeul_config_settings_menu" name="Settings"-->
+<!--            parent="fleet.fleet_configuration" sequence="0" action="ap_appeul_config_settings_action"-->
+<!--            />-->
+    </data>
+</odoo>

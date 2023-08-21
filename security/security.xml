@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!--User Groups, Access Rights and Security Mechanism in Detail-->
+    <!-- https://www.youtube.com/watch?v=mzg3EGD_6Gw&list=PLqRRLx0cl0hoJhjFWkFYowveq2Zn55dhM&index=53  -->
+    <record model="ir.module.category" id="module_category_appeul_gh">
+        <field name="name">Appeul Guest House Management</field>
+        <field name="description">Category of appeul guest house</field>
+        <field name="sequence">45</field>
+    </record>
+
+    <record id="group_appeul_gh_receptionist" model="res.groups">
+        <field name="name">Guest House Receptionist</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        
+    </record>
+
+    <record id="group_appeul_gh_cashier" model="res.groups">
+        <field name="name">Guest House Cashier</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        
+    </record>
+
+    <record id="group_appeul_gh_manager" model="res.groups">
+        <field name="name">Guest House Manager</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        <field name="implied_ids" eval="[(4, ref('group_appeul_gh_receptionist')), (4, ref('group_appeul_gh_cashier'))]"/>
+        
+    </record>
+
+     <record id="group_appeul_gh_restaurant_manager" model="res.groups">
+        <field name="name">Restaurant Manager</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        <field name="implied_ids" eval="[(4, ref('group_appeul_gh_cashier'))]"/>
+
+    </record>
+
+
+    <record id="group_appeul_gh_owner" model="res.groups">
+        <field name="name">Guest House Owner</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        <field name="implied_ids" eval="[(4, ref('group_appeul_gh_manager'))]"/>
+    </record>
+
+    <record id="group_appeul_gh_admin" model="res.groups">
+        <field name="name">Guest House Administrator</field>
+        <field name="category_id" ref="module_category_appeul_gh"/>
+        <field name="implied_ids" eval="[(4, ref('group_appeul_gh_manager'))]"/>
+    </record>
+
+
+</odoo>

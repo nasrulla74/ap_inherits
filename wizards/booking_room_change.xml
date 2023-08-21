@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+        <record id="gh_booking_room_change_form" model="ir.ui.view">
+         <field name="name">gh.booking.room.change.wizard</field>
+         <field name="model">booking.room.change</field>
+         <field name="arch" type="xml">
+            <form string="Room Change">
+                <group>
+
+                    <field name="name"/>
+                    <field name="booking_no"/>
+                    <field name="arr_date"/>
+                    <field name="dep_date"/>
+                    <field name="room_no"/>
+                    <field name="new_room_id"/>
+
+                </group>
+                <footer>
+                    <button name="action_room_change_booking" string="Save Changes" type="object" class="btn-primary" confirm="Are you sure to change the room?"/>
+                </footer>
+            </form>
+         </field>
+     </record>
+
+    <record id="win_action_booking_room_change_wizard" model="ir.actions.act_window">
+        <field name="name">Room Change</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">booking.room.change</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="gh_booking_room_change_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
